@@ -9,8 +9,8 @@ PHP execution measurement utility that uses the xdebug stack trace
 ```php
 $dumpDir = dirname(__FILE__);   
 ini_set('xdebug.trace_output_dir', $dumpDir);  
-//ini_set('xdebug.xdebug.trace_format', '0');  
-ini_set('xdebug.xdebug.trace_format', '1');   
+ini_set('xdebug.trace_format', 0);  
+ini_set('xdebug.trace_format', 1);   
 xdebug_start_trace();   
 
    # .... code to time
