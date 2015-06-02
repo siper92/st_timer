@@ -18,15 +18,17 @@ import csv
 import sttimer.parser.line as line_parser
 
 parser = line_parser.DebugLine()
+list_of_files = []
 with open("./trace.89137710.xt") as tsv:
     count = 0
     for line in csv.reader(tsv, dialect="excel-tab"):
         if len(line) < 3:
             continue
-        if count < 10 and (len(line) > 3):
-            print(line)
-            print(parser.get_file_path(line))
+        if count < 100 and (len(line) > 3):
+            # print(line)
+            list_of_files.append(parser.get_file_path(line))
         count += 1
     print(count)
 
+print(list_of_files)
 print("end")

@@ -57,6 +57,12 @@ class DebugLine():
 
     def get_file_path(self, line):
         try:
-            return line[self.FILE_PATH_KEY]
+            if len(line) > 8:
+                return line[self.FILE_PATH_KEY]
+            if (len(line) > 2) and \
+                    (int(line[self.FUNCTION_ENTRY_TYPE_KEY]) != self.ENTRY_TYPE_EXIT):
+                # No file found the the function type is not exit
+                print('No file')
+            return None
         except IndexError as e:
             print(e)
