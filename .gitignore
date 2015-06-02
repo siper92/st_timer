@@ -59,5 +59,6 @@ target/
 # custom 
 temp/
 cache/
+.idea/
 *.swp
 *.xt

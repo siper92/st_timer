@@ -13,20 +13,3 @@
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-
-import csv
-import sttimer.parser.line as line_parser
-
-parser = line_parser.DebugLine()
-with open("./trace.89137710.xt") as tsv:
-    count = 0
-    for line in csv.reader(tsv, dialect="excel-tab"):
-        if len(line) < 3:
-            continue
-        if count < 10 and (len(line) > 3):
-            print(line)
-            print(parser.get_file_path(line))
-        count += 1
-    print(count)
-
-print("end")
