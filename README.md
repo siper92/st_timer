@@ -17,3 +17,23 @@ xdebug_start_trace();
 
 xdebug_stop_trace();  
 ```
+OR
+
+```
+// controls whether XDebug should collect the parameters passed to functions
+//      3 -> Function variables with content
+ini_set('xdebug.collect_params', 3);
+// Controls whether XDebug should write the return value of function calls to the trace files.
+ini_set('xdebug.collect_return', 1); // breaks the store
+ini_set('xdebug.trace_format', 1); // format of the dumped file
+ini_set('xdebug.var_display_max_children', 0);
+ini_set('xdebug.var_display_max_data', 100);
+ini_set('xdebug.var_display_max_depth', 1);
+$microtime = microtime(true);  // start time
+xdebug_start_trace('stack_trace'.$microtime);
+
+   # .... code to time
+
+xdebug_stop_trace(); 
+```
+
