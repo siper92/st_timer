@@ -19,7 +19,7 @@ xdebug_stop_trace();
 ```
 OR
 
-```
+```php
 // controls whether XDebug should collect the parameters passed to functions
 //      3 -> Function variables with content
 ini_set('xdebug.collect_params', 3);
